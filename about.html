@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TruthSeekers - A Safe Platform for Women's Stories</title>
+    <script src="https://cdn.tailwindcss.com/3.4.16"></script>
+    <script>tailwind.config={theme:{extend:{colors:{primary:'#8e44ad',secondary:'#3498db'},borderRadius:{'none':'0px','sm':'4px',DEFAULT:'8px','md':'12px','lg':'16px','xl':'20px','2xl':'24px','3xl':'32px','full':'9999px','button':'8px'}}}}</script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css" rel="stylesheet">
+    <style>
+        :where([class^="ri-"])::before { content: "\f3c2"; }
+        body {
+            font-family: 'Raleway', sans-serif;
+        }
+        .quick-exit-btn:hover {
+            animation: pulse 1s infinite;
+        }
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+        .story-card {
+            transition: transform 0.3s ease;
+        }
+        .story-card:hover {
+            transform: translateY(-5px);
+        }
+    </style>
+</head>
+<body class="bg-cover bg-center bg-no-repeat text-white" style="background-image: url(https://techface.ch/wp-content/uploads/2020/03/Int-Womens-Day-blog-pic.png);">
+  <header class="sticky top-0 z-50 bg-white shadow-sm">
+    <div class="container mx-auto px-6 py-4 flex items-center justify-between">
+        <div class="flex items-center">
+            <a href="index.html" class="font-['Pacifico'] text-2xl text-primary">TruthSeekers</a>
+            <nav class="hidden md:flex ml-10">
+                <ul class="flex space-x-8">
+                    <li><a href="index.html" class="text-gray-800 hover:text-primary font-medium">Home</a></li>
+                    <li><a href="stories.html" class="text-gray-800 hover:text-primary font-medium">Stories</a></li>
+                    <li><a href="index.html" class="text-gray-800 hover:text-primary font-medium">Share Your Story</a></li>
+                    <li><a href="index.html#resources" class="text-gray-800 hover:text-primary font-medium">Resources</a></li>
+                    <li><a href="about.html" class="text-gray-800 hover:text-primary font-medium">About Us</a></li>
+                </ul>
+            </nav>
+        </div>
+        <div class="flex items-center space-x-4">
+            <button class="quick-exit-btn bg-red-500 text-white px-4 py-2 !rounded-button font-medium shadow-sm hover:bg-opacity-90 whitespace-nowrap flex items-center">
+                <span class="w-5 h-5 flex items-center justify-center mr-1"><i class="ri-door-open-line"></i></span>
+                Quick Exit
+            </button>
+        </div>
+    </div>
+  </header>
+
+  <!-- Safety Information Bar -->
+  <div class="bg-yellow-50 border-b border-yellow-100">
+      <div class="container mx-auto px-6 py-3 flex flex-col md:flex-row items-center justify-between">
+          <div class="flex items-center">
+              <span class="w-5 h-5 flex items-center justify-center text-yellow-600 mr-2"><i class="ri-alert-line"></i></span>
+              <p class="text-sm text-yellow-800">This site has a quick exit button. Press ESC or click "Quick Exit" to leave immediately.</p>
+          </div>
+          <div class="flex items-center mt-2 md:mt-0">
+              <span class="w-5 h-5 flex items-center justify-center text-yellow-600 mr-2"><i class="ri-phone-line"></i></span>
+              <p class="text-sm text-yellow-800 font-medium">Emergency Hotline: 1-800-799-7233</p>
+          </div>
+      </div>
+  </div>
+
+  <main class="max-w-5xl mx-auto px-4 py-12">
+    <section class="mb-12">
+      <h2 class="text-3xl font-bold text-purple-800 mb-4">About TruthSeekers</h2>
+      <p class="text-lg leading-relaxed text-white">
+        TruthSeekers is a safe, compassionate platform for women to share their stories, reclaim their voices, and break free from cycles of exploitation and silence. We believe in the power of storytelling to heal, connect, and ignite change.
+      </p>
+    </section>
+
+    <section class="grid md:grid-cols-2 gap-10">
+      <div class="bg-opacity-50 p-6 rounded-2xl shadow-sm border">
+        <h3 class="text-xl font-semibold text-purple-700 mb-2">Our Mission</h3>
+        <p class="text-white leading-relaxed">
+          Our mission is to uplift voices that have been silenced. Whether it's sharing experiences with harassment, abuse, or trauma, this space exists to foster strength, community, and healing.
+        </p>
+      </div>
+
+      <div class="bg-opacity-50 p-6 rounded-2xl shadow-sm border">
+        <h3 class="text-xl font-semibold text-purple-700 mb-2">Our Values</h3>
+        <ul class="list-disc pl-5 text-white space-y-1">
+          <li>Empowerment through truth</li>
+          <li>Safe, inclusive storytelling</li>
+          <li>Respect for every journey</li>
+          <li>Community and compassion</li>
+        </ul>
+      </div>
+
+      <div class="bg-opacity-50 p-6 rounded-2xl shadow-sm border">
+        <h3 class="text-xl font-semibold text-purple-700 mb-2">Support & Resources</h3>
+        <p class="text-white leading-relaxed">
+          We’re more than a story hub—we also connect women to resources, helplines, and organizations that offer tangible support. You’re not alone, and help is always within reach.
+        </p>
+      </div>
+
+      <div class="--tw-bg-opacity p-6 rounded-2xl shadow-sm border">
+        <h3 class="text-xl font-semibold text-purple-700 mb-2">Join Our Community</h3>
+        <p class="text-white-50 leading-relaxed">
+          Everyone’s story matters. Whether you choose to share yours or simply find strength in reading others’, you’re part of a growing community rooted in courage, truth, and healing.
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-gray-900 bg-opacity-85 text-white py-12">
+    <div class="container mx-auto px-6">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+            <div>
+                <h3 class="font-['Pacifico'] text-2xl mb-4">TruthSeekers</h3>
+                <p class="text-gray-400 text-sm">A safe platform for women to share their stories, reclaim their voices, and break free from exploitation.</p>
+            </div>
+            
+            <div>
+                <h4 class="font-bold text-lg mb-4">Quick Links</h4>
+                <ul class="space-y-2">
+                    <li><a href="index.html" class="text-gray-400 hover:text-white">Home</a></li>
+                    <li><a href="stories.html" onclick="goToStoriesPage()" class="text-gray-400 hover:text-white">Stories</a></li>
+                    <li><a href="index.html" onclick="openShareStory()" class="text-gray-400 hover:text-white">Share Your Story</a></li>
+                    <li><a href="index.html#resources" class="text-gray-400 hover:text-white">Resources</a></li>
+                    <li><a href="about.html" class="text-gray-400 hover:text-white">About Us</a></li>
+                </ul>
+            </div>
+            
+            <div>
+                <h4 class="font-bold text-lg mb-4">Support</h4>
+                <ul class="space-y-2">
+                    <li><a href="hotlines.html" class="text-gray-400 hover:text-white">Emergency Hotlines</a></li>
+                    <li><a href="legal.html" class="text-gray-400 hover:text-white">Legal Resources</a></li>
+                    <li><a href="counseling.html" class="text-gray-400 hover:text-white">Counseling Services</a></li>
+                    <li><a href="#" class="text-gray-400 hover:text-white">Support Groups</a></li>
+                    <li><a href="housing.html" class="text-gray-400 hover:text-white">Safety Planning</a></li>
+                </ul>
+            </div>
+            
+            <div>
+                <h4 class="font-bold text-lg mb-4">Contact & Legal</h4>
+                <ul class="space-y-2">
+                    <li><a href="#" class="text-gray-400 hover:text-white">Contact Us</a></li>
+                    <li><a href="#" class="text-gray-400 hover:text-white">Privacy Policy</a></li>
+                    <li><a href="#" class="text-gray-400 hover:text-white">Terms of Service</a></li>
+                    <li><a href="#" class="text-gray-400 hover:text-white">Cookie Policy</a></li>
+                </ul>
+                <div class="mt-4 flex space-x-4">
+                    <a href="#" class="text-gray-400 hover:text-white w-8 h-8 flex items-center justify-center rounded-full bg-gray-800">
+                        <i class="ri-instagram-line"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-white w-8 h-8 flex items-center justify-center rounded-full bg-gray-800">
+                        <i class="ri-twitter-x-line"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-white w-8 h-8 flex items-center justify-center rounded-full bg-gray-800">
+                        <i class="ri-facebook-fill"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="border-t border-gray-800 mt-10 pt-6 text-center text-gray-500 text-sm">
+            <p>&copy; 2025 TruthSeekers. All rights reserved. This site uses SSL encryption to protect your data.</p>
+        </div>
+    </div>
+</footer>
+<script>
+  // Quick exit functionality
+  document.querySelectorAll('.quick-exit-btn').forEach(btn => {
+          btn.addEventListener('click', () => {
+              window.location.href = 'https://google.com';
+          });
+      });
+  // Add ESC key listener for quick exit
+  document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                window.location.href = 'https://google.com';
+            }
+        });
+</script>
+</body>
+</html>

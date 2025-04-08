@@ -1,0 +1,656 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TruthSeekers - A Safe Platform for Women's Stories</title>
+    <script src="https://cdn.tailwindcss.com/3.4.16"></script>
+    <script>tailwind.config = { theme: { extend: { colors: { primary: '#8e44ad', secondary: '#3498db' }, borderRadius: { 'none': '0px', 'sm': '4px', DEFAULT: '8px', 'md': '12px', 'lg': '16px', 'xl': '20px', '2xl': '24px', '3xl': '32px', 'full': '9999px', 'button': '8px' } } } }</script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css" rel="stylesheet">
+    <style>
+        :where([class^="ri-"])::before {
+            content: "\f3c2";
+        }
+
+        body {
+            font-family: 'Raleway', sans-serif;
+        }
+
+        .quick-exit-btn:hover {
+            animation: pulse 1s infinite;
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.05);
+            }
+
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        .story-card {
+            transition: transform 0.3s ease;
+        }
+
+        .story-card:hover {
+            transform: translateY(-5px);
+        }
+    </style>
+</head>
+
+<body class="bg-gray-50">
+    <!-- Header Navigation -->
+    <header class="sticky top-0 z-50 bg-white shadow-sm">
+        <div class="container mx-auto px-6 py-4 flex items-center justify-between">
+            <div class="flex items-center">
+                <a href="#" class="font-['Pacifico'] text-2xl text-primary">TruthSeekers</a>
+                <nav class="hidden md:flex ml-10">
+                    <ul class="flex space-x-8">
+                        <li><a href="#" class="text-gray-800 hover:text-primary font-medium">Home</a></li>
+                        <li><a href="javascript:void(0);" onclick="goToStoriesPage()"
+                                class="text-gray-800 hover:text-primary font-medium">Stories</a></li>
+                        <li>
+                            <a href="#" onclick="openShareStory()" class="text-gray-800 hover:text-primary font-medium">
+                                Share Your Story
+                            </a>
+                        </li>
+
+                        <li><a href="#resources" class="text-gray-800 hover:text-primary font-medium">Resources</a></li>
+                        <li><a href="about.html" class="text-gray-800 hover:text-primary font-medium">About Us</a></li>
+                    </ul>
+                </nav>
+            </div>
+            <div class="flex items-center space-x-4">
+                <button
+                    class="quick-exit-btn bg-red-500 text-white px-4 py-2 !rounded-button font-medium shadow-sm hover:bg-opacity-90 whitespace-nowrap flex items-center">
+                    <span class="w-5 h-5 flex items-center justify-center mr-1"><i class="ri-door-open-line"></i></span>
+                    Quick Exit
+                </button>
+            </div>
+        </div>
+    </header>
+    <!-- Safety Information Bar -->
+    <div class="bg-yellow-50 border-b border-yellow-100">
+        <div class="container mx-auto px-6 py-3 flex flex-col md:flex-row items-center justify-between">
+            <div class="flex items-center">
+                <span class="w-5 h-5 flex items-center justify-center text-yellow-600 mr-2"><i
+                        class="ri-alert-line"></i></span>
+                <p class="text-sm text-yellow-800">This site has a quick exit button. Press ESC or click "Quick Exit" to
+                    leave immediately.</p>
+            </div>
+            <div class="flex items-center mt-2 md:mt-0">
+                <span class="w-5 h-5 flex items-center justify-center text-yellow-600 mr-2"><i
+                        class="ri-phone-line"></i></span>
+                <p class="text-sm text-yellow-800 font-medium">Emergency Hotline: 1-800-799-7233</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="relative bg-gradient-to-r from-white to-purple-50 overflow-hidden">
+        <div style="background-image: url('https://public.readdy.ai/ai/img_res/37b156ee245b9b4dee7bdd78146c88b7.jpg'); background-position: right center; background-size: cover; background-repeat: no-repeat;"
+            class="w-full">
+            <div class="container mx-auto px-6 py-20 md:py-28 w-full">
+                <div class="max-w-2xl">
+                    <h1 class="text-4xl md:text-5xl font-bold text-gray-900 leading-tight">Your Voice Matters. Your
+                        Story Deserves to be Heard.</h1>
+                    <p class="mt-6 text-lg text-gray-700 leading-relaxed">TruthSeekers provides a safe, anonymous
+                        platform for women to share their experiences, connect with others, and access resources for
+                        healing and empowerment.</p>
+                    <div class="mt-8 flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
+                        <button onclick="openShareStory()"
+                            class="bg-primary text-white px-6 py-3 !rounded-button font-medium shadow-md hover:bg-opacity-90 whitespace-nowrap flex items-center justify-center">
+                            <span class="w-5 h-5 flex items-center justify-center mr-2">
+                                <i class="ri-edit-line"></i>
+                            </span>
+                            Share Your Story
+                        </button>
+
+                        <button onclick="goToStoriesPage()"
+                            class="bg-white text-primary border border-primary px-6 py-3 !rounded-button font-medium shadow-md hover:bg-gray-50 whitespace-nowrap flex items-center justify-center">
+                            <span class="w-5 h-5 flex items-center justify-center mr-2"><i
+                                    class="ri-book-open-line"></i></span>
+                            Read Stories
+                        </button>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Stories Section -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-gray-900">Featured Stories</h2>
+                <p class="mt-4 text-gray-600 max-w-2xl mx-auto">Real experiences shared by brave women from our
+                    community. All stories are anonymized to protect privacy.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="stories-container">
+                <!-- Stories will be dynamically inserted here -->
+            </div>
+
+            <div class="mt-12 text-center">
+                <button onclick="goToStoriesPage()"
+                    class="bg-white text-primary border border-primary px-6 py-3 !rounded-button font-medium shadow-sm hover:bg-gray-50 whitespace-nowrap">
+                    View All Stories
+                </button>
+            </div>
+        </div>
+    </section>
+
+
+
+    <!-- Support Resources Section -->
+    <section id="resources" class="py-16 bg-gray-50">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-gray-900">Support Resources</h2>
+                <p class="mt-4 text-gray-600 max-w-2xl mx-auto">Access verified organizations, hotlines, and services
+                    dedicated to supporting women in crisis.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6" id="resources-container">
+                <!-- Resources will be dynamically inserted here -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Community Guidelines Section -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="max-w-4xl mx-auto">
+                <h2 class="text-3xl font-bold text-gray-900 text-center">Community Guidelines</h2>
+                <p class="mt-4 text-gray-600 text-center mb-10">Our commitment to creating a safe, respectful space for
+                    all members.</p>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8" id="guidelines-container">
+                    <!-- Guidelines will be dynamically inserted here -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Security Features Section -->
+    <section class="py-16 bg-purple-50">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-gray-900">Your Safety is Our Priority</h2>
+                <p class="mt-4 text-gray-600 max-w-2xl mx-auto">TruthSeekers implements multiple layers of security to
+                    protect your identity and privacy.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6" id="security-features-container">
+                <!-- Security features will be dynamically inserted here -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="aboutUs" class="bg-gray-900 text-white py-12">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="font-['Pacifico'] text-2xl mb-4">TruthSeekers</h3>
+                    <p class="text-gray-400 text-sm">A safe platform for women to share their stories, reclaim their
+                        voices, and break free from exploitation.</p>
+                </div>
+
+                <div>
+                    <h4 class="font-bold text-lg mb-4">Quick Links</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white">Home</a></li>
+                        <li><a href="javascript:void(0);" onclick="goToStoriesPage()" class="text-gray-400 hover:text-white">Stories</a></li>
+                        <li><a href="#" onclick="openShareStory()" class="text-gray-400 hover:text-white">Share Your Story</a></li>
+                        <li><a href="#resources" class="text-gray-400 hover:text-white">Resources</a></li>
+                        <li><a href="about.html" class="text-gray-400 hover:text-white">About Us</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="font-bold text-lg mb-4">Support</h4>
+                    <ul class="space-y-2">
+                        <li><a href="hotlines.html" class="text-gray-400 hover:text-white">Emergency Hotlines</a></li>
+                        <li><a href="legal.html" class="text-gray-400 hover:text-white">Legal Resources</a></li>
+                        <li><a href="counseling.html" class="text-gray-400 hover:text-white">Counseling Services</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Support Groups</a></li>
+                        <li><a href="housing.html" class="text-gray-400 hover:text-white">Safety Planning</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="font-bold text-lg mb-4">Contact & Legal</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white">Contact Us</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Privacy Policy</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Terms of Service</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white">Cookie Policy</a></li>
+                    </ul>
+                    <div class="mt-4 flex space-x-4">
+                        <a href="#"
+                            class="text-gray-400 hover:text-white w-8 h-8 flex items-center justify-center rounded-full bg-gray-800">
+                            <i class="ri-instagram-line"></i>
+                        </a>
+                        <a href="#"
+                            class="text-gray-400 hover:text-white w-8 h-8 flex items-center justify-center rounded-full bg-gray-800">
+                            <i class="ri-twitter-x-line"></i>
+                        </a>
+                        <a href="#"
+                            class="text-gray-400 hover:text-white w-8 h-8 flex items-center justify-center rounded-full bg-gray-800">
+                            <i class="ri-facebook-fill"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="border-t border-gray-800 mt-10 pt-6 text-center text-gray-500 text-sm">
+                <p>&copy; 2025 TruthSeekers. All rights reserved. This site uses SSL encryption to protect your data.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mock data for stories
+        const storiesData = [
+            {
+                id: 1,
+                title: "Finding My Voice Again",
+                excerpt: "After years of silence, I finally found the courage to speak up about my experience with workplace harassment.",
+                category: "Workplace Harassment",
+                contentWarning: true,
+                date: "March 28, 2025"
+            },
+            {
+                id: 2,
+                title: "The Journey to Healing",
+                excerpt: "My path to recovery wasn't linear, but each step forward helped me reclaim pieces of myself I thought were lost forever.",
+                category: "Domestic Violence",
+                contentWarning: true,
+                date: "March 25, 2025"
+            },
+            {
+                id: 3,
+                title: "Breaking the Cycle",
+                excerpt: "When I realized I was repeating patterns I'd seen growing up, I knew I had to make a change for myself and my children.",
+                category: "Family Trauma",
+                contentWarning: false,
+                date: "March 20, 2025"
+            }
+        ];
+
+        // Mock data for resources
+        const resourcesData = [
+            {
+                title: "Crisis Hotlines",
+                description: "24/7 emergency support for immediate assistance and intervention.",
+                icon: "ri-phone-line",
+                color: "bg-red-100 text-red-600",
+                link: "hotlines.html"
+            },
+            {
+                title: "Legal Support",
+                description: "Free and reduced-cost legal services for protection orders, custody, and more.",
+                icon: "ri-scales-3-line",
+                color: "bg-blue-100 text-blue-600",
+                link: "legal.html"
+            },
+            {
+                title: "Counseling Services",
+                description: "Individual and group therapy options with trauma-informed professionals.",
+                icon: "ri-mental-health-line",
+                color: "bg-green-100 text-green-600",
+                link: "counseling.html"
+            },
+            {
+                title: "Safe Housing",
+                description: "Emergency shelter and transitional housing programs for women and children.",
+                icon: "ri-home-heart-line",
+                color: "bg-yellow-100 text-yellow-600",
+                link: "housing.html"
+            }
+        ];
+
+        // Mock data for community guidelines
+        const guidelinesData = [
+            {
+                title: "Respectful Communication",
+                description: "We maintain a space where all members treat each other with dignity and respect. Harmful language, victim-blaming, and judgmental comments are not tolerated.",
+                icon: "ri-chat-heart-line"
+            },
+            {
+                title: "Content Warnings",
+                description: "Stories containing potentially triggering content are clearly labeled with content warnings, allowing members to make informed choices about what they read.",
+                icon: "ri-alert-line"
+            },
+            {
+                title: "Privacy Protection",
+                description: "All stories are anonymized, and we strictly prohibit sharing identifying details about yourself or others. Our moderation team reviews content before publication.",
+                icon: "ri-shield-user-line"
+            },
+            {
+                title: "Reporting System",
+                description: "Our easy-to-use reporting system allows members to flag inappropriate content or concerning behavior for immediate review by our moderation team.",
+                icon: "ri-flag-line"
+            }
+        ];
+
+        // Mock data for security features
+        const securityFeaturesData = [
+            {
+                title: "SSL Encryption",
+                description: "All data is encrypted using industry-standard protocols to protect your information during transmission.",
+                icon: "ri-lock-line"
+            },
+            {
+                title: "Anonymous Posting",
+                description: "Share your story without revealing your identity. Our system automatically removes identifying metadata.",
+                icon: "ri-user-voice-line"
+            },
+            {
+                title: "Privacy Mode",
+                description: "Enable enhanced privacy features that leave no trace of your browsing activity on this site.",
+                icon: "ri-eye-off-line"
+            },
+            {
+                title: "No Tracking Policy",
+                description: "We do not use cookies for tracking or advertising purposes. Your browsing behavior is not monitored.",
+                icon: "ri-footprint-line"
+            }
+        ];
+
+
+        // Render stories
+        const storiesContainer = document.getElementById('stories-container');
+        storiesData.forEach(story => {
+            const storyCard = document.createElement('div');
+            storyCard.className = 'story-card bg-white rounded-lg shadow-md overflow-hidden border border-gray-100';
+            storyCard.innerHTML = `
+        <div class="p-6">
+            <div class="flex justify-between items-start mb-3">
+                <span class="text-xs font-medium text-gray-500">${story.date}</span>
+                ${story.contentWarning ? '<span class="text-xs font-medium px-2 py-1 bg-yellow-100 text-yellow-800 rounded-full">Content Warning</span>' : ''}
+            </div>
+            <h3 class="text-xl font-semibold text-gray-900 mb-2">${story.title}</h3>
+            <span class="inline-block px-3 py-1 text-xs font-medium bg-purple-100 text-primary rounded-full mb-3">${story.category}</span>
+            <p class="text-gray-600 mb-4">${story.excerpt}</p>
+            <button class="read-btn text-primary font-medium flex items-center hover:underline">
+                Read Full Story
+                <span class="w-5 h-5 flex items-center justify-center ml-1"><i class="ri-arrow-right-line"></i></span>
+            </button>
+        </div>
+    `;
+
+            const readButton = storyCard.querySelector('.read-btn');
+            readButton.addEventListener('click', () => openFullStory(story));
+
+            storiesContainer.appendChild(storyCard);
+        });
+
+        // Render resources
+        const resourcesContainer = document.getElementById('resources-container');
+        resourcesData.forEach(resource => {
+            const resourceCard = document.createElement('div');
+            resourceCard.className = 'bg-white rounded-lg shadow-md p-6 border border-gray-100';
+            resourceCard.innerHTML = `
+                <div class="w-12 h-12 ${resource.color} rounded-full flex items-center justify-center mb-4">
+                    <i class="${resource.icon} text-xl"></i>
+                </div>
+                <h3 class="text-xl font-semibold text-gray-900 mb-2">${resource.title}</h3>
+                <p class="text-gray-600 mb-4">${resource.description}</p>
+                 <a href="${resource.link}" class="text-primary font-medium flex items-center hover:underline">
+            Access Resources
+            <span class="w-5 h-5 flex items-center justify-center ml-1"><i class="ri-external-link-line"></i></span>
+        </a>
+            `;
+            resourcesContainer.appendChild(resourceCard);
+        });
+
+        // Render guidelines
+        const guidelinesContainer = document.getElementById('guidelines-container');
+        guidelinesData.forEach(guideline => {
+            const guidelineItem = document.createElement('div');
+            guidelineItem.className = 'flex';
+            guidelineItem.innerHTML = `
+                <div class="w-12 h-12 bg-purple-100 text-primary rounded-full flex items-center justify-center flex-shrink-0 mr-4">
+                    <i class="${guideline.icon} text-xl"></i>
+                </div>
+                <div>
+                    <h3 class="text-xl font-semibold text-gray-900 mb-2">${guideline.title}</h3>
+                    <p class="text-gray-600">${guideline.description}</p>
+                </div>
+            `;
+            guidelinesContainer.appendChild(guidelineItem);
+        });
+
+        // Render security features
+        const securityFeaturesContainer = document.getElementById('security-features-container');
+        securityFeaturesData.forEach(feature => {
+            const featureCard = document.createElement('div');
+            featureCard.className = 'bg-white rounded-lg shadow-md p-6 border border-gray-100';
+            featureCard.innerHTML = `
+                <div class="w-12 h-12 bg-primary bg-opacity-10 rounded-full flex items-center justify-center mb-4">
+                    <i class="${feature.icon} text-xl text-primary"></i>
+                </div>
+                <h3 class="text-xl font-semibold text-gray-900 mb-2">${feature.title}</h3>
+                <p class="text-gray-600">${feature.description}</p>
+            `;
+            securityFeaturesContainer.appendChild(featureCard);
+        });
+
+        // Quick exit functionality
+        document.querySelectorAll('.quick-exit-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                window.location.href = 'https://weather.com';
+            });
+        });
+
+        // Add ESC key listener for quick exit
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                window.location.href = 'https://weather.com';
+            }
+        });
+
+
+        function openFullStory(story) {
+            document.getElementById('modalStoryTitle').textContent = story.title;
+            document.getElementById('modalStoryCategory').textContent = story.category;
+            document.getElementById('modalStoryDate').textContent = story.date;
+            document.getElementById('modalStoryExcerpt').textContent = story.excerpt;
+            document.getElementById('fullStoryModal').classList.remove('hidden');
+        }
+
+        function closeFullStory() {
+            document.getElementById('fullStoryModal').classList.add('hidden');
+        }
+
+
+    </script>
+
+
+
+
+
+    <div id="shareStoryModal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden">
+        <div class="bg-white rounded-lg p-8 w-full max-w-lg relative">
+            <button onclick="closeShareStory()"
+                class="absolute top-2 right-2 text-gray-500 hover:text-black text-xl">&times;</button>
+            <h3 class="text-2xl font-bold mb-4 text-primary">Share Your Story</h3>
+            <form id="storyForm">
+                <label class="block mb-2 font-medium text-gray-700">Title</label>
+                <input type="text" id="title" class="w-full p-3 border border-gray-300 rounded-md mb-4"
+                    placeholder="Story title" />
+
+                <label class="block mb-2 font-medium text-gray-700">Excerpt</label>
+                <textarea id="excerpt" class="w-full p-3 border border-gray-300 rounded-md mb-4" rows="2"
+                    placeholder="Short excerpt..."></textarea>
+
+                <label class="block mb-2 font-medium text-gray-700">Category</label>
+                <input type="text" id="category" class="w-full p-3 border border-gray-300 rounded-md mb-4"
+                    placeholder="Category (e.g. Workplace Harassment)" />
+
+                <label class="flex items-center mb-4">
+                    <input type="checkbox" id="contentWarning" class="mr-2" />
+                    <span class="text-gray-700">Content Warning</span>
+                </label>
+
+
+
+                <button type="submit"
+                    class="bg-primary text-white px-6 py-2 rounded-button font-medium hover:bg-opacity-90">Submit</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Full Story Modal -->
+    <div id="fullStoryModal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 hidden">
+        <div class="bg-white rounded-lg p-8 w-full max-w-xl relative">
+            <button onclick="closeFullStory()"
+                class="absolute top-2 right-2 text-gray-500 hover:text-black text-xl">&times;</button>
+            <h3 id="modalStoryTitle" class="text-2xl font-bold mb-4 text-primary"></h3>
+            <p id="modalStoryCategory" class="text-sm text-gray-500 mb-2"></p>
+            <p id="modalStoryDate" class="text-sm text-gray-500 mb-4"></p>
+            <p id="modalStoryExcerpt" class="text-gray-700"></p>
+        </div>
+    </div>
+
+
+
+
+    <!-- Your scripts (JS) -->
+    <script>
+        // Load stories from localStorage or use default
+        let defaultStories = [
+        {
+                id: 1,
+                title: "Finding My Voice Again",
+                excerpt: "After years of silence, I finally found the courage to speak up about my experience with workplace harassment. The fear of losing my job and the guilt of not reporting sooner haunted me daily. But when I heard another woman speak out, something in me shifted.<br><br>I realized staying silent was empowering the people who hurt me. By finding my voice, I found my strength. The journey wasn't easy, but it was necessary—and I’m proud to stand tall today.",
+                category: "Workplace Harassment",
+                contentWarning: true,
+                date: "March 28, 2025"
+            },
+            {
+                id: 2,
+                title: "The Journey to Healing",
+                excerpt: "My path to recovery wasn't linear. There were days I wanted to give up, overwhelmed by the emotional scars left behind. But each step forward, no matter how small, helped me reclaim parts of myself I thought were lost forever.<br><br>I leaned on a support group of women who had walked similar paths. Their strength gave me the courage to keep going. Healing is messy, but it's also beautiful—and I’m finally learning to love myself again.",
+                category: "Domestic Violence",
+                contentWarning: true,
+                date: "March 25, 2025"
+            },
+            {
+                id: 3,
+                title: "Breaking the Cycle",
+                excerpt: "I grew up watching unhealthy patterns play out between adults in my life. I swore I wouldn’t repeat them—but I did. It took years to recognize how deeply those experiences shaped me.<br><br>Now, I'm working hard to raise my children differently. I listen. I apologize. I break the silence. It’s not perfect, but it’s a beginning—a conscious effort to end generational harm and create a future rooted in empathy.",
+                category: "Family Trauma",
+                contentWarning: false,
+                date: "March 20, 2025"
+            },
+            {
+                id: 4,
+                title: "Fear to Freedom",
+                excerpt: "I never thought I’d be afraid to leave my house. For months, I felt like I was being watched. Every unknown number, every shadow, made my heart race. It was paralyzing.<br><br>With the help of a trauma counselor and a protection order, I began reclaiming my space. I learned that fear is valid—but it doesn’t have to be forever. Today, I walk outside without looking over my shoulder.",
+                category: "Stalking",
+                contentWarning: true,
+                date: "March 18, 2025"
+            },
+            {
+                id: 5,
+                title: "Reclaiming My Power",
+                excerpt: " For years, I was made to feel like I was never enough—criticized, manipulated, and constantly doubting myself. I thought I was the problem. But slowly, with support, I began to see the truth.<br><br>I started therapy and rebuilt my sense of self, piece by piece. I no longer accept blame for someone else’s actions. I’m reclaiming my power—and learning to trust myself again.",
+                category: "Emotional Abuse",
+                contentWarning: true,
+                date: "March 15, 2025"
+            },
+            {
+                id: 6,
+                title: "A Light after the Storm",
+                excerpt: "Growing up, love felt conditional. I was often left to fend for myself emotionally, and it left a void I carried for years. I didn’t understand what healthy care looked like.<br><br>But now, I surround myself with people who value me. I’m learning to parent myself, to heal that inner child, and to give the love I never received.",
+                category: "Childhood Neglect",
+                contentWarning: false,
+                date: "March 12, 2025"
+            },
+            {
+                id: 7,
+                title: "The Courage to Walk Away",
+                excerpt: "He didn’t hit me, so I told myself it wasn’t abuse. But the control, the gaslighting, the fear of speaking my mind—it wore me down. I lost myself trying to please someone who never truly saw me.<br><br>Leaving wasn’t easy, but it was necessary. I’m learning to stand in my truth and build a life where I feel safe, heard, and free.",
+                category: "Toxic Relationship",
+                contentWarning: false,
+                date: "March 10, 2025"
+            },
+            {
+                id: 8,
+                title: "No Longer Ashamed",
+                excerpt: "I stayed silent for a long time, convinced that speaking up would only bring more pain. Shame weighed me down. But silence didn’t protect me—it isolated me.<br><br>When I shared my truth, I found community, not judgment. Healing is ongoing, but I no longer carry the weight of silence alone. My story matters.",
+                category: "Sexual Assault",
+                contentWarning: true,
+                date: "March 7, 2025"
+            }
+
+        ];
+
+        let savedStories = JSON.parse(localStorage.getItem("storiesData"));
+    let StoriesData;
+    if (!savedStories) {
+        StoriesData = defaultStories;
+        localStorage.setItem("storiesData", JSON.stringify(defaultStories));
+    } else {
+        StoriesData = savedStories;
+    }
+
+        // Show modal
+        function openShareStory() {
+            document.getElementById('shareStoryModal').classList.remove('hidden');
+        }
+
+        // Close modal
+        function closeShareStory() {
+            document.getElementById('shareStoryModal').classList.add('hidden');
+        }
+
+        // Handle form submit
+        document.getElementById('storyForm').addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            const newStory = {
+                id: StoriesData.length + 1,
+                title: document.getElementById('title').value,
+                excerpt: document.getElementById('excerpt').value,
+                category: document.getElementById('category').value,
+                contentWarning: document.getElementById('contentWarning').checked,
+                date: new Date().toLocaleDateString()
+            };
+
+            StoriesData.unshift(newStory); // Add to beginning
+            localStorage.setItem("storiesData", JSON.stringify(StoriesData)); // Save to localStorage
+            closeShareStory();
+            alert("Story submitted successfully!");
+            document.getElementById('storyForm').reset();
+        });
+
+        // Navigate to new page for reading stories
+        function goToStoriesPage() {
+            window.location.href = "stories.html";
+        }
+    </script>
+
+
+</body>
+
+
+
+</html>
